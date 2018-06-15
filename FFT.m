@@ -5,6 +5,15 @@
 #xdft = fft(x);
 #xdft = xdft(1:N/2+1);
 
+#N=50; %Número de amostras no gráfico.
+#fo = 2; %frequência do sinal x
+#Ts=1/40;
+#n=0:N-1;
+#x=cos(2*pi*fo*n*Ts);
+#fu = 10; %frequência do sinal u
+#Tu = 1/100;
+#y=cos(2*pi*fu*n*Tu);
+
 x = [2, 2, 4, 4, 6];  #Sinal
 N = length(x);
 
@@ -19,6 +28,8 @@ for(i = 1:N)
   endfor
     C(i) = ((resultado(i) * 2)/N);  #Cálculo do sinal real C[k]
 endfor
+
+resultadoFase = angle(resultado);
 
 subplot(3, 1, 1);
 stem(abs(fft(x)));
